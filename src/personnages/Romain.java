@@ -5,7 +5,6 @@ public class Romain {
 	private int force;
 	
 	public Romain(String nom, int force) {
-		super();
 		this.nom = nom;
 		this.force = force;
 	}
@@ -15,7 +14,7 @@ public class Romain {
 	}
 	
 	public void parler(String texte) {
-		System.out.println(prendreParole() + "« " + texte + "»");
+		System.out.println(prendreParole() + "\" " + texte + "\"");
 	}
 	
 	private String prendreParole() {
@@ -23,9 +22,10 @@ public class Romain {
 	}
 	
 	public void recevoirCoup(int forceCoup) {
+		// force = points de vie / energie
 		force -= forceCoup;
 		if (force > 0) {
-			parler("Aïe");
+			parler("Aie");
 		} else {
 			parler("J'abandonne...");
 		}
@@ -34,9 +34,10 @@ public class Romain {
 	
 	public static void main(String[] args) {
 		Romain minus = new Romain("Minus", 6);
-//		System.out.println(minus.prendreParole());
-//		minus.parler("Ave !");
-//		minus.recevoirCoup(10);
-	}
+		System.out.println(minus.prendreParole());
+		minus.parler("Ave !");
+		minus.recevoirCoup(3);
+		System.out.println("Points de vies de " + minus.nom + " : " + minus.force);
 
+	}
 }
