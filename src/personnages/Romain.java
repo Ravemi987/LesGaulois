@@ -39,8 +39,15 @@ public class Romain {
 		assert forceApres < forceAvant;
 	}
 	
+	private void ajouterEquipement(Equipement equipement, int position) {
+		equipements[position] = equipement;
+		nbEquipement++;
+		System.out.println("Le soldat " + this.nom
+				+ " s'équipe avec un " + equipement.toString() + ".");
+	}
+	
 	public void sEquiper(Equipement equipement) {
-		switch (this.nbEquipement) {
+		switch (nbEquipement) {
 		case 2:
 			System.out.println("Le soldat " + this.nom 
 					+ " est deja bien protégé !");
@@ -49,23 +56,16 @@ public class Romain {
 		case 1:
 			if(equipements[0] == equipement) {
 				System.out.println("Le soldat " + this.nom
-						+ "possède déjà un " + equipement.toString() + "!");
+						+ " possède déjà un " + equipement.toString() + "!");
 			} else {
-				ajouterEquipement(equipement);
+				ajouterEquipement(equipement, 1);
 			}
 			break;
 
 		default:
-			ajouterEquipement(equipement);
+			ajouterEquipement(equipement, 0);
 			break;
 		}
-	}
-	
-	private void ajouterEquipement(Equipement equipement) {
-		equipements[1] = equipement;
-		nbEquipement++;
-		System.out.println("Le soldat " + this.nom
-				+ " s'équipe avec un " + equipement.toString() + ".");
 	}
 	
 	public static void main(String[] args) {
